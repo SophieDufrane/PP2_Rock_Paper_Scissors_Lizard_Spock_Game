@@ -1,3 +1,150 @@
-body {
-    background-color: aqua;
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&display=swap');
+
+/* To override default styles from the browser */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
+/* Global style */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #7bccf5;
+    font-family:"Righteous", sans-serif;
+}
+
+/* header */
+header {
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    padding: 15px;
+}
+
+/* Game area */
+.game-area {
+    width: 90%;
+    height: 100%;
+    margin:20px auto;
+    overflow: hidden; /* Prevent margin collapsing */
+}
+
+/* FIRST SECTION: about-game-section, with introduction sentence and toggle section to display rules */
+.about-game-section {
+    margin-bottom: 15px;
+    padding-top: 15px; /* Use padding for top spacing */
+}
+
+#toggle-button {
+    font-family: "Righteous", sans-serif;
+    font-size: 0.9rem;
+    width: 110px;
+    padding: 8px;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.589);
+    border-radius: 8px;
+    border: solid 1px rgba(255, 255, 255, 0.589);
+}
+
+/* SECOND SECTION: console-section, with icons to select options */
+.console-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-top: 15px; /* Use padding instead of margin to avoid overlap */
+    margin-bottom: 15px;
+}
+
+.icon-option {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: solid 5px white;
+    background-color: white;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.icon-option img {
+    width: 100%;
+    background-color: transparent;
+    filter: grayscale(100%);
+    /* Ensures consistency of the images color */
+}
+
+/* Hover effect for icon to be selected */
+.icon-option:hover {
+    border: solid 5px #fedf4e;
+}
+
+/* THIRD SECTION: result-section, with score-area (round number and scores), round-result-area (icons selected and rule applying for the round) */
+.result-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+.score-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.round-result-area {
+    display: flex;
+    align-items: center;
+}
+
+.result-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: solid 5px white;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.result-image img {
+    width: 100%;
+    filter: grayscale(100%);
+    /* Ensures consistency of the images color */
+}
+
+/* FOURTH SECTION: restart-section, with button to reset the game to defaut state */
+.restart-section {
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+#restart-button {
+    font-family: "Righteous", sans-serif;
+    font-size: 0.9rem;
+    width: 110px;
+    padding: 8px;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.589);
+    border-radius: 8px;
+    border: solid 1px rgba(255, 255, 255, 0.589);
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px;
+}
+

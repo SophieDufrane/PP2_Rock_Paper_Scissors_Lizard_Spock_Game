@@ -15,7 +15,7 @@
     <!-- Game area -->
     <div class="game-area">
 
-        <!-- About game with note that invites the player to pick an option -->
+        <!-- About game section with sentence to invite the player to pick an option and rules -->
         <div class="about-game-section">
             <h2>Click an icon to play, first to 5 points wins!</h2>
 
@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <!-- Console section with icons for each options -->
+        <!-- Console section with icons to select an option -->
         <div class="console-section">
             <button class="icon-option" data-selection="0">
                 <img src="assets/images/rock.png" alt="Rock icon">
@@ -51,30 +51,34 @@
         <!-- Result section with Round number, scores, images of the selected option -->
         <div class="result-section">
             <div class="score-area">
-                <h3>Score</h3>
-                <p>You</p>
-                <p>:</p>
-                <p>Kirk</p>
+                <div class="game-status">
+                    <h3>Score</h3>
+                </div>
+                <div class="score-line">
+                    <p>You <span id="user-score">0</span></p>
+                    <p>:</p>
+                    <p><span id="computer-score">0</span> Kirk</p>
+                </div>
             </div>
 
-            <div class="result-area">
-                <div id="user-selection">
-                    <img src="assets/images/spockPortrait.jpg" alt="Spock image">
+            <div class="round-result-area">
+                <div class="result-image">
+                    <img id="user-selection" src="assets/images/spockPortrait.jpg" alt="Spock image">
                 </div>
 
                 <div class="result-message">
-                    <p>Let's Play!</p>
+                    <span id="rule-applied">Let's Play!</span>
                 </div>
 
-                <div id="computer-selection">
-                    <img src="assets/images/kirkPortrait.jpg" alt="Kirk image">
+                <div class="result-image">
+                    <img id="computer-selection" src="assets/images/kirkPortrait.jpg" alt="Kirk image">
                 </div>
             </div>
         </div>
 
         <!-- Restart button -->
-        <div class="restart-button">
-            <button>Restart</button>
+        <div class="restart-section">
+            <button id="restart-button">Restart</button>
         </div>
 
     </div>
