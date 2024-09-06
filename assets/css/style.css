@@ -157,7 +157,9 @@ header {
 .result-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 50%;
+    object-fit: cover;
+    /* Ensures the image covers the area without distortion */
     filter: grayscale(100%);
     /* Ensures consistency of the images color */
 }
@@ -189,4 +191,60 @@ footer {
     color: white;
     font-size: 1.2rem;
     padding: 15px;
+    margin-top: auto;
+    /* Ensures footer stays at the bottom of the page */
+}
+
+/* media queries for screens 768px and larger */
+@media (min-width: 768px) {
+
+    header {
+        font-size: 2rem;
+    }
+
+    .game-area {
+        width: 85%;
+    }
+
+    .about-game-section {
+        font-size: 0.8rem;
+    }
+
+    .result-images {
+        width: 150px;
+        height: 150px;
+    }
+
+    .result-rules {
+        font-size: 1.2rem;
+    }
+
+}
+
+/* media queries for screens 992px and larger */
+@media (min-width: 992px) {
+
+    header {
+        font-size: 2rem;
+        padding: 20px;
+    }
+
+    .game-area {
+        width: 75%;
+    }
+
+    #toggle-button {
+        font-size: 1.2rem;
+        width: 150px;
+    }
+
+    #restart-button {
+        font-size: 1.2rem;
+        width: 150px;
+    }
+
+    footer {
+        font-size: 1.5rem;
+    }
+
 }
