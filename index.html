@@ -17,27 +17,64 @@
 
         <!-- About game with note that invites the player to pick an option -->
         <div class="about-game-section">
+            <h2>Click an icon to play, first to 5 points wins!</h2>
 
-        </div>
-
-        <!-- Rules sections with toggle button to hide and display rules -->
-        <div class="rules-section">
-
+            <!-- Rules sections with toggle button to hide and display rules -->
+            <button id="toggle-button">View Rules</button>
+            <div id="rules-section" style="display: none;">
+                <p>Scissors cuts Paper. Paper covers Rock. Rock crushes Lizard. Lizard poisons Spock.
+                    Spock smashes Scissors. Scissors decapitates Lizard. Lizard eats Paper.
+                    Paper disproves Spock. Spock vaporizes Rock. Rock crushes Scissors.
+                </p>
+            </div>
         </div>
 
         <!-- Console section with icons for each options -->
         <div class="console-section">
-
+            <button class="icon-option" data-selection="0">
+                <img src="assets/images/rock.png" alt="Rock icon">
+            </button>
+            <button class="icon-option" data-selection="1">
+                <img src="assets/images/paper.png" alt="Paper icon">
+            </button>
+            <button class="icon-option" data-selection="2">
+                <img src="assets/images/scissors.png" alt="Scissors icon">
+            </button>
+            <button class="icon-option" data-selection="3">
+                <img src="assets/images/lizard.png" alt="Lizard icon">
+            </button>
+            <button class="icon-option" data-selection="4">
+                <img src="assets/images/spock.png" alt="Spock icon">
+            </button>
         </div>
 
         <!-- Result section with Round number, scores, images of the selected option -->
         <div class="result-section">
+            <div class="score-area">
+                <h3>Score</h3>
+                <p>You</p>
+                <p>:</p>
+                <p>Kirk</p>
+            </div>
 
+            <div class="result-area">
+                <div id="user-selection">
+                    <img src="assets/images/spockPortrait.jpg" alt="Spock image">
+                </div>
+
+                <div class="result-message">
+                    <p>Let's Play!</p>
+                </div>
+
+                <div id="computer-selection">
+                    <img src="assets/images/kirkPortrait.jpg" alt="Kirk image">
+                </div>
+            </div>
         </div>
 
-        <div>
-
-            <!-- Restart button -->
+        <!-- Restart button -->
+        <div class="restart-button">
+            <button>Restart</button>
         </div>
 
     </div>
