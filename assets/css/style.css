@@ -9,8 +9,9 @@
 }
 
 /* Global style */
-html, body {
-    height: auto;
+html,
+body {
+    height: 100%;
 }
 
 /* Make the body a flex container and stack the elements vertically*/
@@ -19,7 +20,21 @@ body {
     flex-direction: column;
     text-align: center;
     background-color: #7bccf5;
-    font-family:"Righteous", sans-serif;
+    font-family: "Righteous", sans-serif;
+}
+
+/* Text styling for result message, glow effect*/
+.glow-text {
+    text-shadow:
+        0 0 12px #7bccf5,
+        /* Light blue glow for contrast */
+        0 0 16px #3f7b99,
+        /* Larger light blue glow */
+        0 0 20px #ff8c00,
+        /* Orange glow */
+        0 0 22px #194154,
+        /* Extended light blue glow */
+        0 0 25px #0f0e0a;
 }
 
 /* header */
@@ -32,9 +47,8 @@ header {
 
 /* Game area - the whole page except the Header and Footer*/
 .game-area {
-    width: 90%;
-    height: 100%;
-    margin:20px auto;
+    width: 95%;
+    margin: 10px auto;
 }
 
 /* FIRST SECTION: about-game-section, with introduction sentence and toggle section to display rules */
@@ -43,7 +57,8 @@ header {
     flex-direction: column;
     align-items: center;
     font-size: 0.7rem;
-    margin-bottom: 15px; /* Use a mix of padding and margin, for spacing between sections and avoiding margins to overlap */
+    margin-bottom: 15px;
+    /* Use a mix of padding and margin, for spacing between sections and avoiding margins to overlap */
     padding-top: 15px;
 }
 
@@ -52,7 +67,7 @@ header {
     font-size: 1rem;
     width: 110px;
     padding: 8px;
-    margin-top: 20px;
+    margin-top: 25px;
     background-color: rgba(255, 255, 255, 0.589);
     border-radius: 8px;
     border: solid 1px rgba(255, 255, 255, 0.589);
@@ -63,7 +78,8 @@ header {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding-top: 15px; /* Use padding instead of margin to avoid overlap */
+    padding-top: 15px;
+    /* Use padding instead of margin to avoid overlap */
     margin-bottom: 15px;
 }
 
@@ -71,7 +87,7 @@ header {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: solid 5px white;
+    border: none;
     background-color: white;
     margin: 10px;
     overflow: hidden;
@@ -89,34 +105,40 @@ header {
     border: solid 5px #fedf4e;
 }
 
-/* THIRD SECTION: result-section, with score-area (round number and scores), round-result-area (icons selected and rule applying for the round) */
+/* THIRD SECTION: result-section, with score-area and round-result-area */
 .result-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     padding-top: 15px;
     margin-bottom: 15px;
 }
 
+/* Score area with the round number and scores */
 .score-area {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    align-items: center;
-    padding-top: 15px;
-    margin-bottom: 15px;
-}
-
-.game-status {
-    
+    width: 200px;
+    padding: 15px;
+    border: solid 3px #fedf4e;
+    border-radius: 8px;
+    font-family: "Audiowide", sans-serif;
+    font-size: 1rem;
+    color: #fedf4e;
 }
 
 .score-line {
-
+    display: flex;
+    flex-direction: row;
 }
 
+.score-line p {
+    padding: 5px;
+}
+
+/* result area with icons selected and rule applied for the round */
 .round-result-area {
     display: flex;
     align-items: center;
@@ -129,14 +151,20 @@ header {
     height: 120px;
     border-radius: 50%;
     border: solid 5px white;
-    margin: 10px;
     overflow: hidden;
 }
 
 .result-image img {
     width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
     filter: grayscale(100%);
     /* Ensures consistency of the images color */
+}
+
+.result-message {
+    width: 25%;
+    margin: 10px;
 }
 
 /* FOURTH SECTION: restart-section, with button to reset the game to defaut state */
@@ -162,4 +190,3 @@ footer {
     font-size: 1.2rem;
     padding: 15px;
 }
-
