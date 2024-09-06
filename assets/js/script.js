@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let button of buttons) {
         button.addEventListener("click", function() { // Add event listener to get attribute of the icon selected
         let userSelection = this.getAttribute("data-selection");
-        console.log(userSelection);
+        console.log(userSelection); // TO BE REMOVED!
         })
     }
 }
@@ -22,9 +22,11 @@ function toggleRulesSection() {
     let rulesSection = document.getElementById("rules-section")
 
     if (rulesSection.style.display === "none") {
-        rulesSection.style.display = "block"
+        rulesSection.style.display = "block";
+        toggleButton.textContent = "Hide Rules";
     } else {
-        rulesSection.style.display = "none"
+        rulesSection.style.display = "none";
+        toggleButton.textContent = "View Rules";
     }
 }
 
@@ -53,5 +55,5 @@ function updateAndIncrementScore() {
 }
 
 function restartGame() {
-    console.log("Restart is clicked!")
+    console.log("Restart is clicked!"); // TO BE REMOVED!
 }
