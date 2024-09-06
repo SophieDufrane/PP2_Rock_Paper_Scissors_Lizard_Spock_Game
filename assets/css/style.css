@@ -195,7 +195,7 @@ footer {
     /* Ensures footer stays at the bottom of the page */
 }
 
-/* media queries for screens 768px and larger */
+/* media queries for screens 768px */
 @media (min-width: 768px) {
 
     header {
