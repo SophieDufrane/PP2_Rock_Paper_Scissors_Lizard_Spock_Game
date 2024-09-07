@@ -109,7 +109,7 @@ header {
 
 /* Hover effect for icon to be selected */
 .icon-option:hover {
-    border: solid 5px #fedf4e;
+    border: solid 3px #fedf4e;
 }
 
 /* THIRD SECTION: result-section, with score-area and round-result-area */
@@ -157,7 +157,7 @@ header {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: solid 5px white;
+    border: solid 3px white;
     overflow: hidden;
 }
 
@@ -173,7 +173,7 @@ header {
 }
 
 .result-message {
-    width: 25%;
+    width: 100px;
     margin: 10px;
 }
 

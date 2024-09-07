@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function setUpGame() {
     let icons = document.getElementsByClassName("icon-option");
 
     for (let icon of icons) {
-        icon.addEventListener("click", function () { // Add event listener to get attribute of the button selected
+        icon.addEventListener("click", function iconClicked() { // Add event listener to get attribute of the icon selected
 
             let userSelection = this.getAttribute("data-selection");
             console.log("The user selection is", userSelection);
@@ -32,6 +32,9 @@ const rules = {
     spock: ["scissors", "rock"]
 };
 
+// Initialise a variable to keep track of the round number
+let roundNumber = 1;
+
 // Main function of the game that take the user selection as a parameter, create the computer's one with random number, then call functions to update the icons and check who win the round
 function runGame(userSelection) {
     // Define the computer selection with random number
@@ -42,6 +45,8 @@ function runGame(userSelection) {
 
     // Call the function checkWinner with user and computer selection
     checkWinner(userSelection, computerSelection);
+
+    updateGameStatus();
 }
 
 // Update the icons in result section to reflect the user's and the computer's selection
@@ -70,6 +75,7 @@ function checkWinner(userSelection, computerSelection) {
     udpateRuleApplied(result);
 }
 
+// Function that updates the message in the result section, based on the outcome of the round (and the checkWinner result) 
 function udpateRuleApplied(result) {
     let resultMessage = document.getElementById("rule-applied");
     
@@ -82,8 +88,14 @@ function udpateRuleApplied(result) {
     }
 }   
 
-function updateRoundNumber() {
-
+/**
+ * Update the game status and display round number
+ */
+function updateGameStatus() {
+    
+    let gameStatus = document.getElementById("game-status-message");
+    gameStatus.textContent = `Round ${roundNumber}`;
+    roundNumber++;
 }
 
 function updateAndIncrementScore() {
