@@ -73,6 +73,13 @@ header {
     border: solid 1px rgba(255, 255, 255, 0.589);
 }
 
+#rules-section {
+    width: 80%;
+    font-family: "Raleway", system-ui;
+    font-size: 0.8rem;
+    margin-top: 20px;
+}
+
 /* SECOND SECTION: console-section, with icons to select options */
 .console-section {
     display: flex;

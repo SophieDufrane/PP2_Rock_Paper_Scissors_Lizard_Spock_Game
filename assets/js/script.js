@@ -26,7 +26,7 @@ let choices = ["rock", "paper", "scissors", "lizard", "spock"];
 function runGame(userSelection) {
     // Define the computer selection with random number
     let computerSelection = choices[Math.floor(Math.random() * choices.length)];
-    updateSelectedIcon(userSelection, computerSelection)
+    updateSelectedIcon(userSelection, computerSelection);
 
 }
 
