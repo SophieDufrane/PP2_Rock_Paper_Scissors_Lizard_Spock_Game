@@ -1,37 +1,47 @@
 // Wait for the DOM to finish loading before running the game
-document.addEventListener("DOMContentLoaded", function() {
-    let buttons = document.getElementsByClassName("icon-option");
-   
-    for (let button of buttons) {
-        button.addEventListener("click", function() { // Add event listener to get attribute of the icon selected
-        let userSelection = this.getAttribute("data-selection");
-        console.log("User selection is",userSelection);
+document.addEventListener("DOMContentLoaded", function setUpGame() {
+
+    let icons = document.getElementsByClassName("icon-option");
+
+    for (let icon of icons) {
+        icon.addEventListener("click", function () { // Add event listener to get attribute of the button selected
+
+            let userSelection = this.getAttribute("data-selection");
+            console.log("The user selection is", userSelection);
+
+            // Call the rungame function
+            runGame(userSelection);
         })
     }
 }
 );
 
-// Add event listeners to to the toggle button and the restart button
+// Add event listeners to the toggle button and the restart button
 document.getElementById("toggle-button").addEventListener("click", toggleRulesSection);
 document.getElementById("restart-button").addEventListener("click", restartGame);
 
+// Define an array containing the choices
 let choices = ["rock", "paper", "scissors", "lizard", "spock"];
 
-// Main function that runs the game: passing the user selection, creating the computer one and calling the checkWinner function with both selections
-function runGame() {
-    let computerSelection = choices[Math.floor(Math.random()*choices.length)];
+function runGame(userSelection) {
+    // Define the computer selection with random number
+    let computerSelection = choices[Math.floor(Math.random() * choices.length)];
+    updateSelectedIcon(userSelection, computerSelection)
+
 }
 
-function checkWinner(userSelection, computerSelection) {
-    if (userSelection === computerSelection) {
-        return "draw";
-    } else {
-        return "something else";
-    }
+function checkWinner() {
+
 }
 
-function updateSelectedIcon() {
+function updateSelectedIcon(userSelection, computerSelection) {
+    let userImage = document.getElementById("user-selection");
+    userImage.src = `assets/images/${userSelection}.png`;
+    userImage.alt = `${userSelection} image`;
 
+    let computerImage = document.getElementById("computer-selection");
+    computerImage.src = `assets/images/${computerSelection}.png`;
+    computerImage.alt = `${computerSelection} image`;
 }
 
 function udpateRuleApplied() {

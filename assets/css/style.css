@@ -162,6 +162,7 @@ header {
     /* Ensures the image covers the area without distortion */
     filter: grayscale(100%);
     /* Ensures consistency of the images color */
+    background-color: white;
 }
 
 .result-message {
