@@ -20,13 +20,15 @@ Here the key features:
 
 ### Existing Features:
 
-- **Game Title and Header**
+- **Game Header**
   - The game title is display at the top, the font-family and font-size have been chosen to set up the theme: users immediately know they are in for a fun twist on the classic game. The font-family and color scheme are inspired by the Star Trek universe, adding a thematic connection to the game's sci-fi roots.
 
   ![Header](assets/media/rock_paper_scissors_header.png)
 
 - **Interactive game console**
-  - The player is invited to choose from the 5 options: **Rock**, **Paper**, **Scissors**, **Lizard**, or **Spock** by clicking the corresponding icons. A feature highlights the icons when the mouse hovers over them. 
+  - The player is invited to choose from the 5 options: **Rock**, **Paper**, **Scissors**, **Lizard**, or **Spock** by clicking the corresponding icons. A feature highlights the icons when the mouse hovers over them.
+
+  - The game is played in rounds, and the first player to reach 5 points wins the game.
 
   ![Game Console](assets/media/rock_paper_scissors_console.png)
 
@@ -35,16 +37,14 @@ Here the key features:
 
   ![Rules Section](assets/media/rock_paper_scissors_toggle_rules.png)
 
-- **Score section**
+- **Result section**
   - The game tracks the player's and Capitain Kirk's scores in real-time. It also tracks the round number. The first to reach 5 points is declared winner. 
 
-  ![Score Section](assets/media/rock_paper_scissors_score_section.png)
-
-- **Result display**
   - The result of each round is dynamically updated: the player's and computer's selection are reflected in the game console, making it easy to see who is winning each round. It also shows what rule applies and determines the winner. 
-  For example, if you loose with "Paper covers Rock", it’s immediately displayed offering a clear feedback.
+  For example, if you loose with "Paper disproves Spock", it’s immediately displayed offering a clear feedback.
 
-  ![Result display](assets/media/rock_paper_scissors_result_display.png)
+  ![Result Section - Default](assets/media/rock_paper_scissors_result_section_default.png)
+  ![Result Section - Game over](assets/media/rock_paper_scissors_result_section_game_over.png)
 
 - **Restart Button**
   - A "Restart" button is available at any time to reset the game to its default state, allowing players to start again when the game is over or whenever they want to.
@@ -104,10 +104,10 @@ The following metrics were returned:
   - The most complex function has a cyclomatic complexity value of 4 while the median is 2.5.
 
 - **Lighthouse**: No major issues were detected.
-    - Performance 82%.
+    - Performance 84%.
     - Accessibility 91%.
     - Best practices 100%
-    - SEO 91%
+    - SEO 100%
 
 ### Deployment Steps
 
@@ -121,11 +121,10 @@ The site was deployed to Github following the steps below:
 6. The ribbon at the top will display a green check when it has been deployed correctly.
 7. On the "Deployment" section check the link for the deploid website.
 
-The live link can be found here: https://sophiedufrane.github.io/project2-rockPaperScissors/
+The live link can be found here: https://sophiedufrane.github.io/PP2_Rock_Paper_Scissors_Lizard_Spock_Game/
 
 ## Credits
 
-- In the Javascrip file, the first function to wait for the DOM to finish loading before running the game came from the [Love Math Project](https://github.com/Code-Institute-Solutions/love-maths-2.0-sourcecode/tree/master) of the Code Institute (Author NielMc). This was adapted for the **Rock Paper Scissors Lizard Spock Game**. 
 
 ### Content
 
