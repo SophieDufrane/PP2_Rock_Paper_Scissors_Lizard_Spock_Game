@@ -30,7 +30,7 @@ const rules = {
         [PAPER]: "Lizard eats Paper"
     },
     [SPOCK]: {
-        [SCISSORS]: "Spock smashes Scissors", 
+        [SCISSORS]: "Spock smashes Scissors",
         [ROCK]: "Spock vaporizes Rock"
     }
 };
@@ -61,29 +61,55 @@ document.getElementById("restart-button").addEventListener("click", restartGame)
 
 /**
  * Main function
- * Get the user selection and create the computer's one
- * Update the icons selected in the result section
- * Check the winner and update the result message and game status
+ * Check if the game is over before starting a new one if not
+ * get the user's and computer's selection then
+ * update the icons in the result section
+ * Check the winner and update the result
  */
 function runGame(userSelection) {
-   // Check if the game is over before starting a new one
-   let userScore = parseInt(document.getElementById("user-score").textContent);
-   let computerScore = parseInt(document.getElementById("computer-score").textContent);
+    // Check if game is over
+    if (checkGameOver()) {
+        return;
+    }
 
-   if (userScore >= maxPoints || computerScore >= maxPoints) {
-    return; // Do nothing
-   }
-
-    // Define the computer selection with random number
-    let computerSelection = choices[Math.floor(Math.random()*choices.length)];
+    let computerSelection = choices[Math.floor(Math.random() * choices.length)];
     updateSelectedIcon(userSelection, computerSelection);
 
     // Determine the result of the round by calling the function checkWinner
     let result = checkWinner(userSelection, computerSelection);
 
-    udpateRuleApplied(userSelection, computerSelection);
-    updateGameStatus();
     incrementScore(result);
+    updateGameStatus();
+    udpateRuleApplied(userSelection, computerSelection);
+}
+
+function checkGameOver() {
+    let userScore = parseInt(document.getElementById("user-score").textContent);
+    let computerScore = parseInt(document.getElementById("computer-score").textContent);
+
+    if (userScore >= maxPoints || computerScore >= maxPoints) {
+        return true
+    } else {
+        return false
+    }
+}
+
+/**
+ * Update the game status with round number or game result
+ */
+function updateGameStatus() {
+    let gameStatus = document.getElementById("game-status-message");
+    let userScore = parseInt(document.getElementById("user-score").textContent);
+    let computerScore = parseInt(document.getElementById("computer-score").textContent);
+
+    if (userScore >= maxPoints) {
+        gameStatus.textContent = `You win!`;
+    } else if (computerScore >= maxPoints) {
+        gameStatus.textContent = `Kirk beat you!`
+    } else {
+        gameStatus.textContent = `Round ${roundNumber}`;
+        roundNumber++;
+    }
 }
 
 /**
@@ -102,7 +128,7 @@ function updateSelectedIcon(userSelection, computerSelection) {
 /**
  * Determine the winner based on the rules scenarios
  */
-function checkWinner(userSelection, computerSelection) {    
+function checkWinner(userSelection, computerSelection) {
     if (userSelection === computerSelection) {
         return "draw";
     } else if (rules[userSelection] && rules[userSelection][computerSelection]) {
@@ -117,7 +143,7 @@ function checkWinner(userSelection, computerSelection) {
 */
 function udpateRuleApplied(userSelection, computerSelection) {
     let resultMessage = document.getElementById("rule-applied");
-    
+
     if (userSelection === computerSelection) {
         resultMessage.textContent = "Mind match, draw!";
     } else if (rules[userSelection] && rules[userSelection][computerSelection]) {
@@ -125,15 +151,6 @@ function udpateRuleApplied(userSelection, computerSelection) {
     } else {
         resultMessage.textContent = rules[computerSelection][userSelection];
     }
-}   
-
-/**
- * Update the game status with round number or game result
- */
-function updateGameStatus() {
-    let gameStatus = document.getElementById("game-status-message");
-    gameStatus.textContent = `Round ${roundNumber}`;
-    roundNumber++;
 }
 
 /**
@@ -143,22 +160,15 @@ function incrementScore(result) {
     let userScore = document.getElementById("user-score");
     let computerScore = document.getElementById("computer-score");
 
-    if (result === "win") {
-        userScore.textContent = parseInt(userScore.textContent) +1;
-        computerScore.textContent = parseInt(computerScore.textContent);
-    } else if (result === "lose") {
-        computerScore.textContent = parseInt(computerScore.textContent) +1;
-        userScore.textContent = parseInt(userScore.textContent);
-    } else {
+    if (parseInt(userScore.textContent) >= maxPoints || parseInt(computerScore.textContent) >= maxPoints) {
         return;
     }
-}
 
-/**
- * Check if the game is over when a player reached the max point
- */
-function checkGameOver() {
-
+    if (result === "win") {
+        userScore.textContent = parseInt(userScore.textContent) + 1;
+    } else if (result === "lose") {
+        computerScore.textContent = parseInt(computerScore.textContent) + 1;
+    }
 }
 
 function restartGame() {
