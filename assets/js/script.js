@@ -30,7 +30,7 @@ const rules = {
         [PAPER]: "Lizard eats Paper"
     },
     [SPOCK]: {
-        [SCISSORS]: "Lizard eats Paper", 
+        [SCISSORS]: "Spock smashes Scissors", 
         [ROCK]: "Spock vaporizes Rock"
     }
 };
@@ -66,6 +66,14 @@ document.getElementById("restart-button").addEventListener("click", restartGame)
  * Check the winner and update the result message and game status
  */
 function runGame(userSelection) {
+   // Check if the game is over before starting a new one
+   let userScore = parseInt(document.getElementById("user-score").textContent);
+   let computerScore = parseInt(document.getElementById("computer-score").textContent);
+
+   if (userScore >= maxPoints || computerScore >= maxPoints) {
+    return; // Do nothing
+   }
+
     // Define the computer selection with random number
     let computerSelection = choices[Math.floor(Math.random()*choices.length)];
     updateSelectedIcon(userSelection, computerSelection);
@@ -144,6 +152,13 @@ function incrementScore(result) {
     } else {
         return;
     }
+}
+
+/**
+ * Check if the game is over when a player reached the max point
+ */
+function checkGameOver() {
+
 }
 
 function restartGame() {
