@@ -188,7 +188,7 @@ function toggleRulesSection() {
 }
 
 /**
- * Reset the game to defaut state
+ * Reset the game to default state
  */
 function restartGame() {
     document.getElementById("user-score").innerText = 0;

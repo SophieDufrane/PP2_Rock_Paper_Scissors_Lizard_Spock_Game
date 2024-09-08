@@ -47,7 +47,7 @@ header {
 
 /* Game area - the whole page except the Header and Footer*/
 .game-area {
-    width: 95%;
+    width: 90%;
     margin: 10px auto;
 }
 
@@ -90,8 +90,8 @@ header {
 }
 
 .icon-option {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: none;
     background-color: white;
@@ -127,12 +127,16 @@ header {
     align-items: center;
     justify-content: center;
     width: 200px;
-    padding: 15px;
+    padding: 10px;
     border: solid 3px #fedf4e;
     border-radius: 8px;
     font-family: "Audiowide", sans-serif;
     font-size: 1rem;
     color: #fedf4e;
+}
+
+.game-status {
+    margin: 5px auto;
 }
 
 .score-line {
@@ -153,8 +157,8 @@ header {
 }
 
 .result-image {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: solid 3px white;
     overflow: hidden;
@@ -172,7 +176,7 @@ header {
 }
 
 .result-message {
-    width: 120px;
+    width: 100px;
     margin: 10px;
 }
 
@@ -217,12 +221,17 @@ footer {
         font-size: 0.8rem;
     }
 
-    .result-images {
-        width: 150px;
-        height: 150px;
+    .icon-option {
+        width: 100px;
+        height: 100px;
     }
 
-    .result-rules {
+    .result-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .result-message {
         font-size: 1.2rem;
     }
 
