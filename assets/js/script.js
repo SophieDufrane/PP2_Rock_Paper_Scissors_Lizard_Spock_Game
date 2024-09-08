@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function setUpGame() {
             let userSelection = parseInt(this.getAttribute("data-selection"));
 
             runGame(userSelection);
-        })
+        });
     }
 });
 
@@ -97,9 +97,9 @@ function checkGameOver() {
     let computerScore = parseInt(document.getElementById("computer-score").textContent);
 
     if (userScore >= maxPoints || computerScore >= maxPoints) {
-        return true
+        return true;
     } else {
-        return false
+        return false;
     }
 }
 
@@ -114,7 +114,7 @@ function updateGameStatus() {
     if (userScore >= maxPoints) {
         gameStatus.textContent = `You win!`;
     } else if (computerScore >= maxPoints) {
-        gameStatus.textContent = `Kirk beat you!`
+        gameStatus.textContent = `Kirk beat you!`;
     } else {
         gameStatus.textContent = `Round ${roundNumber}`;
         roundNumber++;
@@ -196,7 +196,7 @@ function incrementScore(result) {
  */
 function toggleRulesSection() {
     let toggleButton = document.getElementById("toggle-button");
-    let rulesSection = document.getElementById("rules-section")
+    let rulesSection = document.getElementById("rules-section");
 
     if (rulesSection.style.display === "none") {
         rulesSection.style.display = "block";
@@ -214,8 +214,8 @@ function restartGame() {
     document.getElementById("user-score").innerText = 0;
     document.getElementById("computer-score").innerText = 0;
 
-    document.getElementById("game-status-message").innerHTML = "Score"
-    document.getElementById("rule-applied").innerHTML = "Let's Play!"
+    document.getElementById("game-status-message").innerHTML = "Score";
+    document.getElementById("rule-applied").innerHTML = "Let's Play!";
 
     let userImage = document.getElementById("user-selection");
     userImage.src = `assets/images/spockPortrait.jpg`;

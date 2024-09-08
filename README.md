@@ -54,7 +54,7 @@ Here the key features:
 - **Footer**
   - The footer includes a fun nod to Captain Kirk as the computer opponent, reminding players to "Make your move and see if you can outsmart Captain Kirk." This playful twist adds a bit of humor and personality to the game, especially for fans of Star Trek.
 
-![Footer](assets/media/rock_paper_scissors_footer.png)
+  ![Footer](assets/media/rock_paper_scissors_footer.png)
 
 
 ### Features left to implement:
@@ -84,13 +84,13 @@ The game was tested on various screens sizes, including mobile devices, tablets,
 
 ### Bugs, Fixes and learning Experiences
 
-- Recommendations from discussions with my mentor helped me improve my initial code:
-  - I combined functions that I had initially created separately
-  - I gave names to any functions that were anonymous.
-  - I used constants to represent each selection (Rock, Paper, Scissors, Lizard, Spock) as string values. This approach prevented typos and ensured that each selection was always referred to consistently.  
-  - He pointed out that the game was running indefinitely without an endpoint. To resolve this, I added a function that stops the game once either the player or the computer reaches 5 points, which also provides a clear winner.
 - During development, I discovered through research that using an object to map each possible combination of the game (e.g., Rock crushes Scissors) was a more efficient approach than using multiple 'if-else' statements. This method significantly improved the code's readability and maintainability by avoiding deeply nested conditions.
-- I also learned to improve the *documentation comments* for functions.
+- Recommendations from discussions with my mentor helped me improve my initial code:
+  - To enhance the user experience, I added the game rules for clear instructions. To avoid cluttering the interface, I implemented a toggle option to show or hide the rules as needed.
+  - On Javascript, I combined functions that I had initially created separately and gave names to anonymous functions.
+  - For each choice (Rock, Paper, Scissors, Lizard, Spock), I assigned a unique constant value (0 to 4). This prevents typos when reusing variables and improves maintainability by ensuring consistent references to each choice.
+  - On the first version of the project, the game was running indefinitely without an endpoint. To resolve this, I added a function that stops the game once either the player or the computer reaches a maximum points, which also provides a clear winner.
+  - I also learned how to improve the *documentation comments* for functions by using @param.
 
 ### Validator Testing
 
@@ -98,10 +98,10 @@ The game was tested on various screens sizes, including mobile devices, tablets,
 - **CSS**: No errors were found when passing the stylesheet through the [Jigsaw Validator](https://jigsaw.w3.org/css-validator/).
 - **JavaScript**: No major issues were detected through [JSHint](https://jshint.com/).
 The following metrics were returned:
-  - There are 10 functions in this file.
+  - There are 11 functions in this file.
   - Function with the largest signature take 2 arguments, while the median is 0.
-  - Largest function has 14 statements in it, while the median is 5.5.
-  - The most complex function has a cyclomatic complexity value of 4 while the median is 2.5.
+  - Largest function has 10 statements in it, while the median is 6.
+  - The most complex function has a cyclomatic complexity value of 5 while the median is 2.
 
 - **Lighthouse**: No major issues were detected.
     - Performance 84%.
