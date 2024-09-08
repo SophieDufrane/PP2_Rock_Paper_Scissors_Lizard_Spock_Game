@@ -57,9 +57,9 @@ header {
     flex-direction: column;
     align-items: center;
     font-size: 0.7rem;
-    margin-bottom: 8px;
     /* Use a mix of padding and margin, for spacing between sections and avoiding margins to overlap */
-    padding-top: 8px;
+    padding-top: 10px;
+    margin-bottom: 8px;
 }
 
 #toggle-button {
@@ -214,16 +214,45 @@ footer {
     }
 
     .game-area {
-        width: 85%;
+        width: 75%;
+        margin: 30px auto;
     }
 
     .about-game-section {
-        font-size: 0.8rem;
+        font-size: 1rem;
+        margin-bottom: 15px;
+        padding-top: 15px;
+    }
+
+    .console-section {
+        margin-bottom: 15px;
+        padding-top: 15px;
+    }
+
+    #rules-section {
+        width: 75%;
+        font-size: 1rem;
     }
 
     .icon-option {
         width: 100px;
         height: 100px;
+    }
+
+    .result-section {
+        margin-bottom: 15px;
+        padding-top: 15px;
+    }
+
+    .score-area {
+        width: 250px;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .round-result-area {
+        padding-top: 20px;
+        margin-bottom: 20px;
     }
 
     .result-image {
@@ -233,6 +262,16 @@ footer {
 
     .result-message {
         font-size: 1.2rem;
+    }
+
+    .restart-section {
+        margin-bottom: 15px;
+        padding-top: 15px;
+    }
+
+    #toggle-button, #restart-button {
+        font-size: 1.2rem;
+        width: 150px;
     }
 
 }
@@ -246,17 +285,42 @@ footer {
     }
 
     .game-area {
-        width: 75%;
+        width: 65%;
     }
 
-    #toggle-button {
-        font-size: 1.2rem;
-        width: 150px;
+    .about-game-section {
+        margin-bottom: 19px;
+        padding-top: 19px;
     }
 
-    #restart-button {
-        font-size: 1.2rem;
-        width: 150px;
+    .console-section {
+        margin-bottom: 19px;
+        padding-top: 19px;
+    }
+
+    .icon-option {
+        width: 120px;
+        height: 120px;
+    }
+
+    .result-section {
+        margin-bottom: 19px;
+        padding-top: 19px;
+    }
+
+    .result-image {
+        width: 140px;
+        height: 140px;
+    }
+
+    .restart-section {
+        margin-bottom: 19px;
+        padding-top: 19px;
+    }
+
+    #toggle-button, #restart-button {
+        font-size: 1.5rem;
+        width: 180px;
     }
 
     footer {
