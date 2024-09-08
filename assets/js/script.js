@@ -171,10 +171,6 @@ function incrementScore(result) {
     }
 }
 
-function restartGame() {
-    console.log("Restart is clicked!"); // TO BE REMOVED!
-}
-
 /**
  * Toggle the visibility of the rules section
  */
@@ -189,4 +185,24 @@ function toggleRulesSection() {
         rulesSection.style.display = "none";
         toggleButton.textContent = "View Rules";
     }
+}
+
+/**
+ * Reset the game to defaut state
+ */
+function restartGame() {
+    document.getElementById("user-score").innerText = 0;
+    document.getElementById("computer-score").innerText = 0;
+
+    document.getElementById("game-status-message").innerHTML = "Score"
+    document.getElementById("rule-applied").innerHTML = "Let's Play!"
+
+    let userImage = document.getElementById("user-selection");
+    userImage.src = `assets/images/spockPortrait.jpg`;
+    userImage.alt = `Spock image`;
+
+    let computerImage = document.getElementById("computer-selection");
+    computerImage.src = `assets/images/kirkPortrait.jpg`;
+    computerImage.alt = `Kirk image`;
+
 }
