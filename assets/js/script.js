@@ -1,17 +1,23 @@
-// Constant to define the maximum points to end the game
+// Define the maximum points to end the game
 const maxPoints = 5;
 
-// Array containing the choices
-const choices = ["rock", "paper", "scissors", "lizard", "spock"];
+// Decalre constant for each choice
+const ROCK = 0;
+const PAPER = 1;
+const SCISSORS = 2;
+const LIZARD = 3;
+const SPOCK = 4;
 
-// Constants to define each choices
-const ROCK = "rock";
-const PAPER = "paper";
-const SCISSORS = "scissors";
-const LIZARD = "lizard";
-const SPOCK = "spock";
+// Map the constants to their corresponding string values
+const selection = {
+    [ROCK]: "rock",
+    [PAPER]: "paper",
+    [SCISSORS]: "scissors",
+    [LIZARD]: "lizard",
+    [SPOCK]: "spock"
+};
 
-// Object to define the winning rules
+// Define the rules of the game
 const rules = {
     [ROCK]: {
         [SCISSORS]: "Rock crushes Scissors",
@@ -48,14 +54,13 @@ document.addEventListener("DOMContentLoaded", function setUpGame() {
 
             let userSelection = this.getAttribute("data-selection");
 
-            // Call the rungame function
             runGame(userSelection);
         })
     }
 }
 );
 
-// Event listeners for toggle and restart button
+// Add event listeners for toggle and restart button that call functions
 document.getElementById("toggle-button").addEventListener("click", toggleRulesSection);
 document.getElementById("restart-button").addEventListener("click", restartGame);
 
@@ -72,7 +77,7 @@ function runGame(userSelection) {
         return;
     }
 
-    let computerSelection = choices[Math.floor(Math.random() * choices.length)];
+    let computerSelection = Math.floor(Math.random() * Object.keys(selection).length);
     updateSelectedIcon(userSelection, computerSelection);
 
     // Determine the result of the round by calling the function checkWinner
@@ -80,7 +85,7 @@ function runGame(userSelection) {
 
     incrementScore(result);
     updateGameStatus();
-    udpateRuleApplied(userSelection, computerSelection);
+    updateRuleApplied(userSelection, computerSelection);
 }
 
 function checkGameOver() {
@@ -117,12 +122,12 @@ function updateGameStatus() {
  */
 function updateSelectedIcon(userSelection, computerSelection) {
     let userImage = document.getElementById("user-selection");
-    userImage.src = `assets/images/${userSelection}.png`;
-    userImage.alt = `${userSelection} image`;
+    userImage.src = `assets/images/${selection[userSelection]}.png`;
+    userImage.alt = `${selection[userSelection]} image`;
 
     let computerImage = document.getElementById("computer-selection");
-    computerImage.src = `assets/images/${computerSelection}.png`;
-    computerImage.alt = `${computerSelection} image`;
+    computerImage.src = `assets/images/${selection[computerSelection]}.png`;
+    computerImage.alt = `${selection[computerSelection]} image`;
 }
 
 /**
@@ -141,7 +146,7 @@ function checkWinner(userSelection, computerSelection) {
 /**
  * Update the message in the result section to display the rule applied 
 */
-function udpateRuleApplied(userSelection, computerSelection) {
+function updateRuleApplied(userSelection, computerSelection) {
     let resultMessage = document.getElementById("rule-applied");
 
     if (userSelection === computerSelection) {
