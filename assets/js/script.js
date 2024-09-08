@@ -4,13 +4,35 @@ const maxPoints = 5;
 // Define an array containing the choices
 const choices = ["rock", "paper", "scissors", "lizard", "spock"];
 
+// Constants to define each choice
+const ROCK = "rock";
+const PAPER = "paper";
+const SCISSORS = "scissors";
+const LIZARD = "lizard";
+const SPOCK = "spock";
+
 // Object to define the winning rules based on possible combinations
 const rules = {
-    rock: ["scissors", "lizard"],
-    paper: ["rock", "spock"],
-    scissors: ["paper", "lizard"],
-    lizard: ["spock", "paper"],
-    spock: ["scissors", "rock"]
+    [ROCK]: {
+        [SCISSORS]: "Rock crushes Scissors",
+        [LIZARD]: "Rock crushes Lizard",
+    },
+    [PAPER]: {
+        [ROCK]: "Paper covers Rock",
+        [SPOCK]: "Paper disproves Spock"
+    },
+    [SCISSORS]: {
+        [PAPER]: "Scissors cuts Paper",
+        [LIZARD]: "Scissors decapitates Lizard"
+    },
+    [LIZARD]: {
+        [SPOCK]: "Lizard poisons Spock",
+        [PAPER]: "Lizard eats Paper"
+    },
+    [SPOCK]: {
+        [SCISSORS]: "Lizard eats Paper", 
+        [ROCK]: "Spock vaporizes Rock"
+    }
 };
 
 // Initialise a variable to keep track of the round number
@@ -43,8 +65,10 @@ function runGame(userSelection) {
     let computerSelection = choices[Math.floor(Math.random()*choices.length)];
     updateSelectedIcon(userSelection, computerSelection);
 
+    // Determine the result of the round by calling the function checkWinner
     let result = checkWinner(userSelection, computerSelection);
-    udpateRuleApplied();
+
+    udpateRuleApplied(userSelection, computerSelection);
     updateGameStatus();
 }
 
@@ -63,7 +87,7 @@ function updateSelectedIcon(userSelection, computerSelection) {
 function checkWinner(userSelection, computerSelection) {    
     if (userSelection === computerSelection) {
         return "draw";
-    } else if (rules[userSelection].includes(computerSelection)) {
+    } else if (rules[userSelection] && rules[userSelection][computerSelection]) {
         return "win";
     } else {
         return "lose";
@@ -71,15 +95,15 @@ function checkWinner(userSelection, computerSelection) {
 }
 
 // Function that updates the message in the result section, based on the outcome of the round (and the checkWinner result) 
-function udpateRuleApplied(result) {
+function udpateRuleApplied(userSelection, computerSelection) {
     let resultMessage = document.getElementById("rule-applied");
     
-    if (result === "draw") {
+    if (userSelection === computerSelection) {
         resultMessage.textContent = "Mind match, draw!";
-    } else if (result === "win") {
-        resultMessage.textContent = "You Win!";
+    } else if (rules[userSelection] && rules[userSelection][computerSelection]) {
+        resultMessage.textContent = rules[userSelection][computerSelection];
     } else {
-        resultMessage.textContent = "Kirk beat you!";
+        resultMessage.textContent = rules[computerSelection][userSelection];
     }
 }   
 
