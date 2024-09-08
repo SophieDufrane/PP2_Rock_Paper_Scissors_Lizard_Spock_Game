@@ -1,7 +1,10 @@
 // Define the maximum points to end the game
 const maxPoints = 5;
 
-// Decalre constant for each choice
+// Initialise a variable to keep track of the round number
+let roundNumber = 1;
+
+// Declare constants for each choice
 const ROCK = 0;
 const PAPER = 1;
 const SCISSORS = 2;
@@ -21,7 +24,7 @@ const selection = {
 const rules = {
     [ROCK]: {
         [SCISSORS]: "Rock crushes Scissors",
-        [LIZARD]: "Rock crushes Lizard",
+        [LIZARD]: "Rock crushes Lizard"
     },
     [PAPER]: {
         [ROCK]: "Paper covers Rock",
@@ -41,9 +44,6 @@ const rules = {
     }
 };
 
-// Initialise a variable to keep track of the round number
-let roundNumber = 1;
-
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function setUpGame() {
 
@@ -52,27 +52,27 @@ document.addEventListener("DOMContentLoaded", function setUpGame() {
     for (let icon of icons) {
         icon.addEventListener("click", function iconClicked() {
 
-            let userSelection = this.getAttribute("data-selection");
+            let userSelection = parseInt(this.getAttribute("data-selection"));
 
             runGame(userSelection);
         })
     }
-}
-);
+});
 
-// Add event listeners for toggle and restart button that call functions
+// Add event listeners for toggle and restart buttons that call the respective functions
 document.getElementById("toggle-button").addEventListener("click", toggleRulesSection);
 document.getElementById("restart-button").addEventListener("click", restartGame);
 
 /**
- * Main function
- * Check if the game is over before starting a new one if not
- * get the user's and computer's selection then
- * update the icons in the result section
- * Check the winner and update the result
+ * Run the main game logic.
+ * 
+ * @param {number} userSelection - The user's choice, corresponding to the data-selection.
+ * 
+ * Checks if the game is over. If so, it does nothing.
+ * Otherwise, updates the result section (scores, game status, selected icons and rules) for each round.
  */
 function runGame(userSelection) {
-    // Check if game is over
+    // Check if the game is over
     if (checkGameOver()) {
         return;
     }
@@ -80,14 +80,18 @@ function runGame(userSelection) {
     let computerSelection = Math.floor(Math.random() * Object.keys(selection).length);
     updateSelectedIcon(userSelection, computerSelection);
 
-    // Determine the result of the round by calling the function checkWinner
+    // Determine the result of the round
     let result = checkWinner(userSelection, computerSelection);
 
+    // Update result section
     incrementScore(result);
     updateGameStatus();
     updateRuleApplied(userSelection, computerSelection);
 }
 
+/**
+ * Check if either the user or computer has reached maximum points.
+ */
 function checkGameOver() {
     let userScore = parseInt(document.getElementById("user-score").textContent);
     let computerScore = parseInt(document.getElementById("computer-score").textContent);
@@ -100,7 +104,7 @@ function checkGameOver() {
 }
 
 /**
- * Update the game status with round number or game result
+ * Update the game status with round number or the outcome of the game if it is over.
  */
 function updateGameStatus() {
     let gameStatus = document.getElementById("game-status-message");
@@ -118,7 +122,10 @@ function updateGameStatus() {
 }
 
 /**
- * Get the images element in result section and update to reflect the user's and the computer's selection
+ * Update the images in result section to reflect the user's and the computer's selection.
+ * 
+ * @param {number} userSelection - The user's choice, corresponding to the data-selection.
+ * @param {number} computerSelection - The computer's randomly selected choice.
  */
 function updateSelectedIcon(userSelection, computerSelection) {
     let userImage = document.getElementById("user-selection");
@@ -131,21 +138,11 @@ function updateSelectedIcon(userSelection, computerSelection) {
 }
 
 /**
- * Determine the winner based on the rules scenarios
+ * Update the message in the result section to display the rule applied for the round.
+ *
+ * @param {number} userSelection - The user's choice, corresponding to the data-selection.
+ * @param {number} computerSelection - The computer's randomly selected choice.
  */
-function checkWinner(userSelection, computerSelection) {
-    if (userSelection === computerSelection) {
-        return "draw";
-    } else if (rules[userSelection] && rules[userSelection][computerSelection]) {
-        return "win";
-    } else {
-        return "lose";
-    }
-}
-
-/**
- * Update the message in the result section to display the rule applied 
-*/
 function updateRuleApplied(userSelection, computerSelection) {
     let resultMessage = document.getElementById("rule-applied");
 
@@ -159,7 +156,25 @@ function updateRuleApplied(userSelection, computerSelection) {
 }
 
 /**
- * Increment scores in the result section
+ * Determine the winner based on the rules.
+ * 
+ * @param {number} userSelection - The user's choice, corresponding to the data-selection.
+ * @param {number} computerSelection - The computer's randomly selected choice.
+ */
+function checkWinner(userSelection, computerSelection) {
+    if (userSelection === computerSelection) {
+        return "draw";
+    } else if (rules[userSelection] && rules[userSelection][computerSelection]) {
+        return "win";
+    } else {
+        return "lose";
+    }
+}
+
+/**
+ * Increment scores in the result section.
+ * 
+ * @param {string} result - The result of the round ("win", "lose" or "draw").
  */
 function incrementScore(result) {
     let userScore = document.getElementById("user-score");
@@ -177,7 +192,7 @@ function incrementScore(result) {
 }
 
 /**
- * Toggle the visibility of the rules section
+ * Toggle the visibility of the rules section.
  */
 function toggleRulesSection() {
     let toggleButton = document.getElementById("toggle-button");
@@ -193,7 +208,7 @@ function toggleRulesSection() {
 }
 
 /**
- * Reset the game to default state
+ * Reset the game to its default state.
  */
 function restartGame() {
     document.getElementById("user-score").innerText = 0;
@@ -209,5 +224,4 @@ function restartGame() {
     let computerImage = document.getElementById("computer-selection");
     computerImage.src = `assets/images/kirkPortrait.jpg`;
     computerImage.alt = `Kirk image`;
-
 }
