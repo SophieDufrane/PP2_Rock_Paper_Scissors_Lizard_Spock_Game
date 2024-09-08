@@ -57,9 +57,9 @@ header {
     flex-direction: column;
     align-items: center;
     font-size: 0.7rem;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     /* Use a mix of padding and margin, for spacing between sections and avoiding margins to overlap */
-    padding-top: 15px;
+    padding-top: 8px;
 }
 
 #toggle-button {
@@ -85,9 +85,8 @@ header {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding-top: 15px;
-    /* Use padding instead of margin to avoid overlap */
-    margin-bottom: 15px;
+    padding-top: 8px;
+    margin-bottom: 8px;
 }
 
 .icon-option {
@@ -117,8 +116,8 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 15px;
-    margin-bottom: 15px;
+    padding-top: 8px;
+    margin-bottom: 8px;
 }
 
 /* Score area with the round number and scores */
@@ -173,14 +172,14 @@ header {
 }
 
 .result-message {
-    width: 100px;
+    width: 120px;
     margin: 10px;
 }
 
 /* FOURTH SECTION: restart-section, with button to reset the game to defaut state */
 .restart-section {
-    padding-top: 15px;
-    margin-bottom: 15px;
+    padding-top: 8px;
+    margin-bottom: 8px;
 }
 
 #restart-button {

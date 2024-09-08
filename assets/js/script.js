@@ -1,17 +1,17 @@
-// Define a maximum points to end the game
+// Constant to define the maximum points to end the game
 const maxPoints = 5;
 
-// Define an array containing the choices
+// Array containing the choices
 const choices = ["rock", "paper", "scissors", "lizard", "spock"];
 
-// Constants to define each choice
+// Constants to define each choices
 const ROCK = "rock";
 const PAPER = "paper";
 const SCISSORS = "scissors";
 const LIZARD = "lizard";
 const SPOCK = "spock";
 
-// Object to define the winning rules based on possible combinations
+// Object to define the winning rules
 const rules = {
     [ROCK]: {
         [SCISSORS]: "Rock crushes Scissors",
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function setUpGame() {
     let icons = document.getElementsByClassName("icon-option");
 
     for (let icon of icons) {
-        icon.addEventListener("click", function iconClicked() { // Add event listener to get attribute of the icon selected
+        icon.addEventListener("click", function iconClicked() {
 
             let userSelection = this.getAttribute("data-selection");
 
@@ -59,7 +59,12 @@ document.addEventListener("DOMContentLoaded", function setUpGame() {
 document.getElementById("toggle-button").addEventListener("click", toggleRulesSection);
 document.getElementById("restart-button").addEventListener("click", restartGame);
 
-// Main function of the game that take the user selection as a parameter, create the computer's one with random number, then call functions to update the icons and check who win the round
+/**
+ * Main function
+ * Get the user selection and create the computer's one
+ * Update the icons selected in the result section
+ * Check the winner and update the result message and game status
+ */
 function runGame(userSelection) {
     // Define the computer selection with random number
     let computerSelection = choices[Math.floor(Math.random()*choices.length)];
@@ -70,9 +75,12 @@ function runGame(userSelection) {
 
     udpateRuleApplied(userSelection, computerSelection);
     updateGameStatus();
+    incrementScore(result);
 }
 
-// Update the icons in result section to reflect the user's and the computer's selection
+/**
+ * Get the images element in result section and update to reflect the user's and the computer's selection
+ */
 function updateSelectedIcon(userSelection, computerSelection) {
     let userImage = document.getElementById("user-selection");
     userImage.src = `assets/images/${userSelection}.png`;
@@ -83,7 +91,9 @@ function updateSelectedIcon(userSelection, computerSelection) {
     computerImage.alt = `${computerSelection} image`;
 }
 
-// Function that checks who is the winner, passes 2 arguments: the user and computer selection, then verifies within the rulesConditions wich scenario applies
+/**
+ * Determine the winner based on the rules scenarios
+ */
 function checkWinner(userSelection, computerSelection) {    
     if (userSelection === computerSelection) {
         return "draw";
@@ -94,7 +104,9 @@ function checkWinner(userSelection, computerSelection) {
     }
 }
 
-// Function that updates the message in the result section, based on the outcome of the round (and the checkWinner result) 
+/**
+ * Update the message in the result section to display the rule applied 
+*/
 function udpateRuleApplied(userSelection, computerSelection) {
     let resultMessage = document.getElementById("rule-applied");
     
@@ -108,7 +120,7 @@ function udpateRuleApplied(userSelection, computerSelection) {
 }   
 
 /**
- * Update the game status and display round number
+ * Update the game status with round number or game result
  */
 function updateGameStatus() {
     let gameStatus = document.getElementById("game-status-message");
@@ -116,15 +128,31 @@ function updateGameStatus() {
     roundNumber++;
 }
 
-function updateAndIncrementScore() {
+/**
+ * Increment scores in the result section
+ */
+function incrementScore(result) {
+    let userScore = document.getElementById("user-score");
+    let computerScore = document.getElementById("computer-score");
 
+    if (result === "win") {
+        userScore.textContent = parseInt(userScore.textContent) +1;
+        computerScore.textContent = parseInt(computerScore.textContent);
+    } else if (result === "lose") {
+        computerScore.textContent = parseInt(computerScore.textContent) +1;
+        userScore.textContent = parseInt(userScore.textContent);
+    } else {
+        return;
+    }
 }
 
 function restartGame() {
     console.log("Restart is clicked!"); // TO BE REMOVED!
 }
 
-// Function to toggle the visibility of the rules section when clicking on the button
+/**
+ * Toggle the visibility of the rules section
+ */
 function toggleRulesSection() {
     let toggleButton = document.getElementById("toggle-button");
     let rulesSection = document.getElementById("rules-section")
