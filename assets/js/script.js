@@ -51,10 +51,10 @@ document.addEventListener("DOMContentLoaded", setUpGame);
  * Initializes the game by setting up event listeners for all interactive elements.
  * 
  * Adds click event listeners to each icon option, 
- * then selection is passed to the runGame function.
+ * for selection to be passed to the runGame function.
  * 
- * Adds event listeners to the 'View Rules' button and 'Restart Game' button.
- * These buttons respectively toggle the display of game rules and restart the game.
+ * Adds event listeners to the Rules and Restart buttons.
+ * These buttons respectively toggle the display of rules section and reset the game to default state.
  */
 function setUpGame() {
     let icons = document.getElementsByClassName("icon-option");
@@ -204,13 +204,11 @@ function toggleRulesSection() {
     let toggleButton = document.getElementById("toggle-button");
     let rulesSection = document.getElementById("rules-section");
 
-    if (rulesSection.style.display === "none") {
-        rulesSection.style.display = "block";
-        toggleButton.textContent = "Hide Rules";
-    } else {
-        rulesSection.style.display = "none";
-        toggleButton.textContent = "View Rules";
-    }
+    // Toggle the "hidden" class on the rules section
+    rulesSection.classList.toggle("hidden");
+
+    // Update the button text based on whether the rules section is visible
+    toggleButton.textContent = rulesSection.classList.contains("hidden") ? "View Rules" : "Hide Rules";
 }
 
 /**

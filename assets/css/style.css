@@ -48,6 +48,10 @@ body {
     cursor: pointer;
 }
 
+.hidden {
+    display: none;
+}
+
 /* header */
 header {
     background-color: black;
