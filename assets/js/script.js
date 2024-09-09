@@ -45,8 +45,18 @@ const rules = {
 };
 
 // Wait for the DOM to finish loading before running the game
-document.addEventListener("DOMContentLoaded", function setUpGame() {
+document.addEventListener("DOMContentLoaded", setUpGame);
 
+/**
+ * Initializes the game by setting up event listeners for all interactive elements.
+ * 
+ * Adds click event listeners to each icon option, 
+ * then selection is passed to the runGame function.
+ * 
+ * Adds event listeners to the 'View Rules' button and 'Restart Game' button.
+ * These buttons respectively toggle the display of game rules and restart the game.
+ */
+function setUpGame() {
     let icons = document.getElementsByClassName("icon-option");
 
     for (let icon of icons) {
@@ -57,11 +67,11 @@ document.addEventListener("DOMContentLoaded", function setUpGame() {
             runGame(userSelection);
         });
     }
-});
 
-// Add event listeners for toggle and restart buttons that call the respective functions
-document.getElementById("toggle-button").addEventListener("click", toggleRulesSection);
-document.getElementById("restart-button").addEventListener("click", restartGame);
+    // Add event listeners for toggle and restart buttons that call the respective functions
+    document.getElementById("toggle-button").addEventListener("click", toggleRulesSection);
+    document.getElementById("restart-button").addEventListener("click", restartGame);
+}
 
 /**
  * Run the main game logic.
@@ -220,6 +230,6 @@ function restartGame() {
     let computerImage = document.getElementById("computer-selection");
     computerImage.src = `assets/images/kirkPortrait.jpg`;
     computerImage.alt = `Kirk image`;
-    
+
     roundNumber = 1;
 }
