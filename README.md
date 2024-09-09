@@ -82,15 +82,29 @@ The game has been tested and works well in the following browsers:
 
 The game was tested on various screens sizes, including mobile devices, tablets, and desktops, ensuring a seamless experience.
 
-### Bugs, Fixes and learning Experiences
+### Bugs, Fixes
 
-- During development, I discovered through research that using an object to map each possible combination of the game (e.g., Rock crushes Scissors) was a more efficient approach than using multiple 'if-else' statements. This method significantly improved the code's readability and maintainability by avoiding deeply nested conditions.
-- Recommendations from discussions with my mentor helped me improve my initial code:
-  - To enhance the user experience, I added the game rules for clear instructions. To avoid cluttering the interface, I implemented a toggle option to show or hide the rules as needed.
-  - On Javascript, I combined functions that I had initially created separately and gave names to anonymous functions.
-  - For each choice (Rock, Paper, Scissors, Lizard, Spock), I assigned a unique constant value (0 to 4). This prevents typos when reusing variables and improves maintainability by ensuring consistent references to each choice.
-  - On the first version of the project, the game was running indefinitely without an endpoint. To resolve this, I added a function that stops the game once either the player or the computer reaches a maximum points, which also provides a clear winner.
-  - I also learned how to improve the *documentation comments* for functions by using @param.
+- Variable not accessible: I had a variable inside a function that wasn’t available to other parts of the code creating a bug. I had to move it so the whole game could use it.
+
+- Wrong Data Type: I was trying to use data that was in the wrong format (a string instead of a number), so I used the parseInt function to fix the issue.
+
+- Function order: The order in which I called some functions affected how the game worked (for example I had to move the 'checkGameOver' at the beginning of the 'runGame').
+
+- Image display issue: When I switched from strings to numbers for the game selection, the images stopped showing correctly. I had to adjust how the game connected the selection to their images.
+
+- Function over complicated: The game logic was initially overcomplicated with multiple 'if-else' statements, making it hard to read and maintain. I discovered through research that using an object to map each possible combination of the game (e.g., Rock crushes Scissors) was a more efficient approach.
+
+### Learning Experiences
+
+I also received recommendations from my mentor that helped me improve my initial project:
+
+  - To enhance the user experience, I added the game rules for clear instructions and to avoid cluttering the interface, I implemented a toggle option to show or hide the section.
+
+  - On Javascript, I combined functions that I had initially created separately and gave names to anonymous functions. I also simplified the toggle function by adding a class to the css instead of changing the content in javascript.
+
+  - For each choice I assigned a unique constant value (0 to 4). This prevents typos when reusing variables and improves maintainability by ensuring consistent references to each choice.
+
+  - On the first version of the project, the game was running indefinitely without an endpoint so I added a function that stops the game and provide a winner once either the player or the computer reaches a maximum points.
 
 ### Validator Testing
 
@@ -100,7 +114,7 @@ The game was tested on various screens sizes, including mobile devices, tablets,
 The following metrics were returned:
   - There are 11 functions in this file.
   - Function with the largest signature take 2 arguments, while the median is 0.
-  - Largest function has 10 statements in it, while the median is 6.
+  - Largest function has 11 statements in it, while the median is 5.
   - The most complex function has a cyclomatic complexity value of 5 while the median is 2.
 
 - **Lighthouse**: No major issues were detected.
@@ -108,6 +122,8 @@ The following metrics were returned:
     - Accessibility 91%.
     - Best practices 100%
     - SEO 100%
+
+
 
 ### Deployment Steps
 
