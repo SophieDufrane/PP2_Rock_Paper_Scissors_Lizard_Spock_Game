@@ -1,5 +1,5 @@
 // Define the maximum points to end the game
-const maxPoints = 5;
+const MAX_POINTS = 5;
 
 // Initialise a variable to keep track of the round number
 let roundNumber = 1;
@@ -96,11 +96,7 @@ function checkGameOver() {
     let userScore = parseInt(document.getElementById("user-score").textContent);
     let computerScore = parseInt(document.getElementById("computer-score").textContent);
 
-    if (userScore >= maxPoints || computerScore >= maxPoints) {
-        return true;
-    } else {
-        return false;
-    }
+    return userScore >= MAX_POINTS || computerScore >= MAX_POINTS;
 }
 
 /**
@@ -111,9 +107,9 @@ function updateGameStatus() {
     let userScore = parseInt(document.getElementById("user-score").textContent);
     let computerScore = parseInt(document.getElementById("computer-score").textContent);
 
-    if (userScore >= maxPoints) {
+    if (userScore >= MAX_POINTS) {
         gameStatus.textContent = `You win!`;
-    } else if (computerScore >= maxPoints) {
+    } else if (computerScore >= MAX_POINTS) {
         gameStatus.textContent = `Kirk beat you!`;
     } else {
         gameStatus.textContent = `Round ${roundNumber}`;
@@ -180,7 +176,7 @@ function incrementScore(result) {
     let userScore = document.getElementById("user-score");
     let computerScore = document.getElementById("computer-score");
 
-    if (parseInt(userScore.textContent) >= maxPoints || parseInt(computerScore.textContent) >= maxPoints) {
+    if (parseInt(userScore.textContent) >= MAX_POINTS || parseInt(computerScore.textContent) >= MAX_POINTS) {
         return;
     }
 
@@ -224,4 +220,6 @@ function restartGame() {
     let computerImage = document.getElementById("computer-selection");
     computerImage.src = `assets/images/kirkPortrait.jpg`;
     computerImage.alt = `Kirk image`;
+    
+    roundNumber = 1;
 }

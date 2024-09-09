@@ -12,12 +12,16 @@
 html,
 body {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* Make the body a flex container and stack the elements vertically*/
 body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    /* Full viewport height */
     text-align: center;
     background-color: #7bccf5;
     font-family: "Righteous", sans-serif;
@@ -37,6 +41,13 @@ body {
         0 0 25px #0f0e0a;
 }
 
+/* Add pointer cursor for clickable elements */
+.icon-option,
+#toggle-button,
+#restart-button {
+    cursor: pointer;
+}
+
 /* header */
 header {
     background-color: black;
@@ -49,6 +60,8 @@ header {
 .game-area {
     width: 90%;
     margin: 10px auto;
+    flex-grow: 1;
+    /* Ensure the game area takes up available space */
 }
 
 /* FIRST SECTION: about-game-section, with introduction sentence and toggle section to display rules */
@@ -80,6 +93,10 @@ header {
     margin-top: 20px;
 }
 
+#rules-section li {
+    list-style: none;
+}
+
 /* SECOND SECTION: console-section, with icons to select options */
 .console-section {
     display: flex;
@@ -90,8 +107,8 @@ header {
 }
 
 .icon-option {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     border: none;
     background-color: white;
@@ -203,7 +220,7 @@ footer {
     font-size: 1.1rem;
     padding: 15px;
     margin-top: auto;
-    /* Ensures footer stays at the bottom of the page */
+    /* Push footer to the bottom */
 }
 
 /* media queries for screens 768px */
@@ -215,18 +232,18 @@ footer {
 
     .game-area {
         width: 75%;
-        margin: 30px auto;
+        margin: 20px auto;
     }
 
     .about-game-section {
         font-size: 1rem;
-        margin-bottom: 15px;
-        padding-top: 15px;
+        margin-bottom: 12px;
+        padding-top: 12px;
     }
 
     .console-section {
-        margin-bottom: 15px;
-        padding-top: 15px;
+        margin-bottom: 12px;
+        padding-top: 12px;
     }
 
     #rules-section {
@@ -240,19 +257,19 @@ footer {
     }
 
     .result-section {
-        margin-bottom: 15px;
-        padding-top: 15px;
+        margin-bottom: 12px;
+        padding-top: 12px;
     }
 
     .score-area {
         width: 250px;
         font-size: 1.2rem;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .round-result-area {
-        padding-top: 20px;
-        margin-bottom: 20px;
+        padding-top: 15px;
+        margin-bottom: 15px;
     }
 
     .result-image {
@@ -265,11 +282,12 @@ footer {
     }
 
     .restart-section {
-        margin-bottom: 15px;
-        padding-top: 15px;
+        margin-bottom: 12px;
+        padding-top: 12px;
     }
 
-    #toggle-button, #restart-button {
+    #toggle-button,
+    #restart-button {
         font-size: 1.2rem;
         width: 150px;
     }
@@ -286,16 +304,17 @@ footer {
 
     .game-area {
         width: 65%;
+        margin: 20px auto;
     }
 
     .about-game-section {
-        margin-bottom: 19px;
-        padding-top: 19px;
+        margin-bottom: 15px;
+        padding-top: 15px;
     }
 
     .console-section {
-        margin-bottom: 19px;
-        padding-top: 19px;
+        margin-bottom: 15px;
+        padding-top: 15px;
     }
 
     .icon-option {
@@ -304,8 +323,8 @@ footer {
     }
 
     .result-section {
-        margin-bottom: 19px;
-        padding-top: 19px;
+        margin-bottom: 15px;
+        padding-top: 15px;
     }
 
     .result-image {
@@ -314,11 +333,12 @@ footer {
     }
 
     .restart-section {
-        margin-bottom: 19px;
-        padding-top: 19px;
+        margin-bottom: 15px;
+        padding-top: 15px;
     }
 
-    #toggle-button, #restart-button {
+    #toggle-button,
+    #restart-button {
         font-size: 1.5rem;
         width: 180px;
     }
