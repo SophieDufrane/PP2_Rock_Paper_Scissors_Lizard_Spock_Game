@@ -1,14 +1,18 @@
 # Rock Paper Scissors Lizard Spock Game
 
-The **Rock Paper Scissors Lizard Spock game** is a fun extension of the classic **Rock Paper Scissors** game, introducing two additionnal options with Lizard and Spock.
+The [Rock Paper Scissors Lizard Spock game](https://sophiedufrane.github.io/PP2_Rock_Paper_Scissors_Lizard_Spock_Game/) is an extension of the classic **Rock Paper Scissors** game, introducing two additionnal options with Lizard and Spock.
 
-The project is designed to be a fun and interactive browser-based game, where the player competes against Capitain Kirk, the computer opponent.
+The game is designed to offer entertainment for fans of the original game as well as for the enthusiasts of *The Big Bang Theory* where it became popular. Just to mention that this version was initially invented by *Sam Kass* before being mentioned on the TV show.
 
-The game is designed to offer entertainment for fans of the original game as well as for the enthusiasts of *The Big Bang Theory* where it became popular.
- 
-Just to mention that this version of the game was initially invented by *Sam Kass* before being mentioned on the TV show.
+The player is looking for a fun, quick, and interactive gaming experience, whether he/she is familiar with the game or discovering it for the first time, the game’s intuitive and responsive interface makes it easy to jump in and start playing immediately.
 
-The game also showcases Javascript's ability to create dynamic, real-time games and responsive user interfaces.
+The game’s options and rules can easily been understood due to the clean design, accessible instructions, and dynamic feedback. It’s engaging because each round is fast-paced, and the clear score tracker keeps the game competitive. The toggleable rules section ensures new player can learn or review the rules.
+
+The humorous connection to Captain Kirk as the computer opponent adds an extra layer of personality to the game, especially for Star Trek fans.
+
+Overall, the website offers an accessible, responsive, and fun experience, ideal for quick entertainment.
+
+Finally and on another note, this game also showcases Javascript's ability to create dynamic, real-time games and responsive user interfaces.
 
 ![Responsive Mockup](assets/media/rock_paper_scissors_mockup.png)
 
@@ -56,7 +60,6 @@ Here the key features:
 
   ![Footer](assets/media/rock_paper_scissors_footer.png)
 
-
 ### Features left to implement:
 
 - **Multiplayer Mode**
@@ -65,46 +68,58 @@ Here the key features:
 - **Score Persistence**
   - A feature that saves scores across sessions could be implemented so that users can keep track of their wins and losses.
 
+### Bugs, Fixes
+
+- **Variable not accessible**: I defined a variable within a function preventing other parts of the code from accessing it. This led to unexpected behavior in the game flow. I fixed this by defining the variable outside the function, allowing it to be used globally within the game logic.
+
+- **Wrong Data Type**: I was trying to use data that was in the wrong format causing logic errors when comparing the player's selection with the computer's. The fix here was to use parseInt() to convert the string to a number, ensuring that comparisons worked correctly.
+
+- **Function order dependency**: Initially, the function order was causing issues in the game flow. For example, the checkGameOver() function was being called after the game logic, leading to incorrect game-over conditions. By reorganizing the order, the game now correctly checks if the game is over before continuing with the next round.
+
+- **Image display issue**: When I moved from using strings to numbers for game selections, the icons stopped displaying properly because the logic didn’t match the new numeric selection system. I adjusted the mapping between numeric selections and corresponding icons, for the images to display correctly.
+
+- **Function over complicated**: The game’s initial logic was too complex, relying on multiple if-else statements that made the code hard to maintain. By using an object that mapped all possible game combinations (e.g., Rock crushes Scissors), the game logic became more efficient and easier to read.
+
+### Learning Experiences
+
+I received valuable recommendations from my mentor, which helped refine the project too:
+
+  - **User Experience**: I added a toggle for the game rules, keeping the interface uncluttered while providing easy access to instructions.
+
+  - **JavaScript Optimisation**: I combined related functions, named anonymous ones, and simplified the toggle feature by using a CSS class instead of manipulating content through JavaScript.
+
+  - **Consistent Choices**: Assigning unique constant values (0-4) for each choice improved code consistency and reduced the risk of typos.
+
+  - **Game Over**: I implemented a function to stop the game and declare a winner once a player reaches the maximum points. Before that the game was running indefinitely without a clear conclusion.
+
 ## Testing:
 
 The game has been tested to ensure that it works smoothly across different browsers and devices, including desktop and mobile screens. 
 
 Here’s an overview of the testing process:
 
-### Browser Compatibility:
+### Feature Functionality Testing
 
-The game has been tested and works well in the following browsers:
-- Google Chrome
-- Microsoft Edge
-- Mozilla Firefox
+To ensure the game functions properly, I performed the following tests on all key features:
 
-### Responsive Design:
+- **Website Accessibility and Browser Compatibility**: Tested in the following browsers:
+  - Google Chrome
+  - Microsoft Edge
+  - Mozilla Firefox
 
-The game was tested on various screens sizes, including mobile devices, tablets, and desktops, ensuring a seamless experience.
+- **Responsive Design**: Tested on various screens sizes, including mobile devices, tablets, and desktops, ensuring a seamless experience.
 
-### Bugs, Fixes
+- **Rules Toggle**: Clicked the "Rules" button to check that the rules section toggles between show/hide without affecting other elements.
 
-- Variable not accessible: I had a variable inside a function that wasn’t available to other parts of the code creating a bug. I had to move it so the whole game could use it.
+- **Game Rounds**: Selected each of the five game options (Rock, Paper, Scissors, Lizard, Spock) and verified the game processed the choices and displayed the correct outcomes.
 
-- Wrong Data Type: I was trying to use data that was in the wrong format (a string instead of a number), so I used the parseInt function to fix the issue.
+- **Score Tracking**: Played multiple rounds to ensure both player and Captain Kirk scores were updated as expected and the round count incremented correctly.
 
-- Function order: The order in which I called some functions affected how the game worked (for example I had to move the 'checkGameOver' at the beginning of the 'runGame').
+- **Game Over Logic**: Played until one side reached 5 points, checking that the game ended and displayed the winner properly.
 
-- Image display issue: When I switched from strings to numbers for the game selection, the images stopped showing correctly. I had to adjust how the game connected the selection to their images.
+- **Restart Functionality**: Clicked the "Restart" button to ensure the game reset all scores, round number, and choices to default without any glitches.
 
-- Function over complicated: The game logic was initially overcomplicated with multiple 'if-else' statements, making it hard to read and maintain. I discovered through research that using an object to map each possible combination of the game (e.g., Rock crushes Scissors) was a more efficient approach.
-
-### Learning Experiences
-
-I also received recommendations from my mentor that helped me improve my initial project:
-
-  - To enhance the user experience, I added the game rules for clear instructions and to avoid cluttering the interface, I implemented a toggle option to show or hide the section.
-
-  - On Javascript, I combined functions that I had initially created separately and gave names to anonymous functions. I also simplified the toggle function by adding a class to the css instead of changing the content in javascript.
-
-  - For each choice I assigned a unique constant value (0 to 4). This prevents typos when reusing variables and improves maintainability by ensuring consistent references to each choice.
-
-  - On the first version of the project, the game was running indefinitely without an endpoint so I added a function that stops the game and provide a winner once either the player or the computer reaches a maximum points.
+- **Mobile Usability**: Tested the game on various mobile devices to ensure all buttons were accessible and gameplay remained smooth.
 
 ### Validator Testing
 
@@ -123,8 +138,6 @@ The following metrics were returned:
     - Best practices 100%
     - SEO 100%
 
-
-
 ### Deployment Steps
 
 The site was deployed to Github following the steps below:
@@ -138,9 +151,6 @@ The site was deployed to Github following the steps below:
 7. On the "Deployment" section check the link for the deploid website.
 
 The live link can be found here: https://sophiedufrane.github.io/PP2_Rock_Paper_Scissors_Lizard_Spock_Game/
-
-## Credits
-
 
 ### Content
 
