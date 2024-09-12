@@ -1,6 +1,6 @@
 # Rock Paper Scissors Lizard Spock Game
 
-The [Rock Paper Scissors Lizard Spock game](https://sophiedufrane.github.io/PP2_Rock_Paper_Scissors_Lizard_Spock_Game/) is an extension of the classic **Rock Paper Scissors** game, introducing two additionnal options with Lizard and Spock.
+The [Rock Paper Scissors Lizard Spock game](https://sophiedufrane.github.io/PP2_Rock_Paper_Scissors_Lizard_Spock_Game/) is an extension of the classic **Rock Paper Scissors** game, introducing two additionnal options with **Lizard** and **Spock**.
 
 The game is designed to offer entertainment for fans of the original game as well as for the enthusiasts of *The Big Bang Theory* where it became popular. Just to mention that this version was initially invented by *Sam Kass* before being mentioned on the TV show.
 
@@ -94,13 +94,9 @@ I received valuable recommendations from my mentor, which helped refine the proj
 
 ## Testing:
 
-The game has been tested to ensure that it works smoothly across different browsers and devices, including desktop and mobile screens. 
-
-Here’s an overview of the testing process:
+The game has been tested to ensure that it works smoothly across different browsers and devices, including desktop and mobile screens. Here’s an overview of the testing process:
 
 ### Feature Functionality Testing
-
-To ensure the game functions properly, I performed the following tests on all key features:
 
 - **Website Accessibility and Browser Compatibility**: Tested in the following browsers:
   - Google Chrome
@@ -133,7 +129,7 @@ The following metrics were returned:
   - The most complex function has a cyclomatic complexity value of 5 while the median is 2.
 
 - **Lighthouse**: No major issues were detected.
-    - Performance 84%.
+    - Performance 94%.
     - Accessibility 91%.
     - Best practices 100%
     - SEO 100%
@@ -150,7 +146,7 @@ The site was deployed to Github following the steps below:
 6. The ribbon at the top will display a green check when it has been deployed correctly.
 7. On the "Deployment" section check the link for the deploid website.
 
-The live link can be found here: https://sophiedufrane.github.io/PP2_Rock_Paper_Scissors_Lizard_Spock_Game/
+The live link can be found here: [Rock Paper Scissors Lizard Spock game](https://sophiedufrane.github.io/PP2_Rock_Paper_Scissors_Lizard_Spock_Game/)
 
 ### Content
 
